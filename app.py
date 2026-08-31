@@ -265,9 +265,8 @@ def load_api_key():
         base_dir = Path(__file__).resolve().parent
         api_path = base_dir / "api_key.txt"
 
-        with open(api_path, "r") as file:
-            return file.read().strip()
-
+        API_KEY = st.secrets["WEATHER_API_KEY"]
+        
     except FileNotFoundError:
         st.error("❌ API key file not found!")
         return None

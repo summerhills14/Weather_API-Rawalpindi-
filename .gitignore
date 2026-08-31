@@ -1,0 +1,12 @@
+# API keys
+api_key.txt
+
+# Python virtual environment
+.venv/
+
+# PyCharm
+.idea/
+
+# Python cache
+__pycache__/
+*.pyc

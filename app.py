@@ -265,8 +265,8 @@ def load_api_key():
         base_dir = Path(__file__).resolve().parent
         api_path = base_dir / "api_key.txt"
 
-        with open(api_path, "r") as file:
-            return file.read().strip()
+        with open("api_key.txt", "r") as file:
+            return  file.read().strip()
 
     except FileNotFoundError:
         st.error("❌ API key file not found!")
@@ -461,6 +461,7 @@ if API_KEY:
 
         </div>
         """, unsafe_allow_html=True)
+
 
         # ADDITIONAL INFORMATION
         with right:

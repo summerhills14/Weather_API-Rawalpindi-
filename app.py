@@ -261,15 +261,22 @@ hr {
 # ==========================================
 
 def load_api_key():
+    # Streamlit Cloud
+    try:
+        return st.secrets["WEATHER_API_KEY"]
+    except Exception:
+        pass
+
+    # Local PyCharm
     try:
         base_dir = Path(__file__).resolve().parent
         api_path = base_dir / "api_key.txt"
 
-        with open("api_key.txt", "r") as file:
-            return  file.read().strip()
+        with open(api_path, "r") as file:
+            return file.read().strip()
 
     except FileNotFoundError:
-        st.error("❌ API key file not found!")
+        st.error("❌ API key not found!")
         return None
 
 
